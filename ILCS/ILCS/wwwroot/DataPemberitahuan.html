@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Sections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        .section {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Pemberitahuan</h1>
+    <nav>
+        <button onclick="showSection('section1')">Data Utama</button>
+        <button onclick="showSection('section2')">Data Entitas</button>
+        <button onclick="showSection('section3')">Data Pungutan</button>
+    </nav>
+
+    <div id="sections-container">
+        <section id="section1" class="section">
+            <div>
+                <label for="nomorPengajuanInput">Nomor Pengajuan</label>
+                <input type="text" id="nomorPengajuan" name="nomorPengajuan">
+
+                <label for="tanggalPengajuanInput">Tanggal Pengajuan</label>
+                <input type="text" id="tanggalPengajuan" name="tanggalPengajuan">
+
+                <label for="nomorPendaftaranInput">Nomor Pendaftaran</label>
+                <input type="text" id="nomorPendaftaran" name="nomorPendaftaran">
+
+                <label for="tanggalPendaftaranInput">Tanggal Pendaftaran</label>
+                <input type="text" id="tanggalPendaftaran" name="tanggalPendaftaran">
+            </div>
+            <div>
+                <label for="kantorPabeanInput">Kantor Pabean</label>
+                <select id="nomorPengajuan" name="nomorPengajuan"></select>
+
+                <label for="SKEPFasilitasInput">SKEP Fasilitas</label>
+                <select id="SKEPFasilitas" name="SKEPFasilitas"></select>
+
+                <label for="jenisPIBInput">Jenis PIB</label>
+                <select id="jenisPIB" name="jenisPIB"></select>
+            </div>
+            <div>
+                <label for="jenisImporInput">Jenis Impor</label>
+                <select id="jenisImpor" name="jenisImpor"></select>
+
+                <label for="caraPembayaranInput">Cara Pembayaran</label>
+                <select id="jenisImpor" name="jenisImpor"></select>
+
+                <label for="transaksiInput">Transaksi</label>
+                <select id="transaksi" name="transaksi"></select>
+            </div>
+            <div>
+                <button>Sebelumnya</button>
+                <button>Selanjutnya</button>
+            </div>
+        </section>
+        <section id="section2" class="section" style="display:none;">
+            <div>
+                <label for="jenisPemberitahuanInput">Jenis Pemberitahuan</label>
+                <select id="jenisPemberitahuan" name="jenisPemberitahuan"></select>
+            </div>
+            <h1>Pengusaha</h1>
+            <div>
+                <label for="jenisIdentitasInput">Jenis Identitas</label>
+                <select id="jenisIdentitas" name="jenisIdentitas"></select>
+
+                <label for="NIBInput">NIB</label>
+                <input type="text" id="NIB" name="NIB">
+
+                <label for="noIdentitasInput">No Identitas</label>
+                <select id="noIdentitas" name="noIdentitas"></select>
+                <button type="button" onclick="search()">Search</button>
+            </div>
+            <div>
+                <label for="noIdentitasInput">No Idemtitas (16 Digit)</label>
+                <input type="text" id="noIdentitas" name="noIdentitas">
+
+                <label for="namaPerusahaanInput">Nama Perusahaan</label>
+                <input type="text" id="namaPerusahaan" name="namaPerusahaan">
+            </div>
+            <div>
+                <label for="provinsiInput">Provinsi</label>
+                <input type="text" id="provinsi" name="provinsi">
+
+                <label for="kotaKabupatenInput">Kota / Kabupaten</label>
+                <input type="text" id="kotaKabupaten" name="kotaKabupaten">
+
+                <label for="kecamatanInput">Kecamatan</label>
+                <input type="text" id="kecamatan" name="kecamatan">
+
+                <label for="kodePosInput">Kode Pos</label>
+                <input type="text" id="kodePos" name="kodePos">
+
+                <label for="RTRWInput">RT / RW</label>
+                <input type="text" id="RTRW" name="RTRW">
+            </div>
+            <div>
+                <label for="telephoneInput">Telephone</label>
+                <input type="text" id="telephone" name="telephone">
+
+                <label for="emailInput">Email</label>
+                <input type="text" id="email" name="email">
+
+                <label for="statusInput">Status</label>
+                <input type="text" id="status" name="status">
+            </div>
+            <div>
+                <button>Sebelumnya</button>
+                <button>Selanjutnya</button>
+            </div>
+        </section>
+        <section id="section3" class="section" style="display:none;">
+            <div>
+                <label for="incotermsInput">Incoterms</label>
+                <select id="incoterms" name="incoterms"></select>
+
+                <label for="valutaInput">Valuta</label>
+                <input type="text" id="valuta" name="valuta">
+
+                <label for="kursInput">Kurs</label>
+                <select id="kurs" name="kurs"></select>
+                <button type="button" onclick="conversion()">Conversion</button>
+            </div>
+            <div>
+                <label for="nilaiInput">Nilai</label>
+                <input type="text" id="nilai" name="nilai">
+
+                <label for="biayaTambahanInput">Biaya Tambahan</label>
+                <input type="text" id="biayaTambahan" name="biayaTambahan">
+
+                <label for="biayaPengurangInput">Biaya Pengurang</label>
+                <input type="text" id="biayaPengurang" name="biayaPengurang">
+
+                <label for="voluntaryDeclarationInput">Voluntary Declaration</label>
+                <input type="text" id="voluntaryDeclaration" name="voluntaryDeclaration">
+
+                <label for="nilaiFOBInput">Nilai FOB</label>
+                <input type="text" id="nilaiFOB" name="nilaiFOB">
+            </div>
+            <div>
+                <label for="asuransiBayarDiInput">Asuransi Bayar di</label>
+                <select id="asuransiBayarDi" name="asuransiBayarDi"></select>
+
+                <label for="asuransiInput">Asuransi</label>
+                <input type="text" id="asuransi" name="asuransi">
+
+                <label for="freightInput">Freight</label>
+                <input type="text" id="freight" name="freight">
+            </div>
+            <div>
+                <label for="CIFInput">CIF</label>
+                <input type="text" id="CIF" name="CIF">
+
+                <label for="CIFRpInput">CIF Rp</label>
+                <input type="text" id="CIF Rp" name="CIF Rp">
+
+                <label for="brutoInput">Bruto</label>
+                <input type="text" id="bruto" name="bruto">
+
+                <label for="nettoInput">Netto</label>
+                <input type="text" id="netto" name="netto">
+
+                <label for="flagKontainerInput">Flag Kontainer</label>
+                <select id="flagKontainer" name="flagKontainer"></select>
+            </div>
+            <div>
+                <button>Kelengkapan Data</button>
+                <button>Simpan</button>
+            </div>
+            <div>
+                <button>Sebelumnya</button>
+                <button>Selanjutnya</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="DataPemberitahuan.js"></script>
+</body>
+</html>
